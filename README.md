@@ -1,7 +1,7 @@
 # A4DB
 COS 221 Practical Assignment 4 Northwind Database GUI using Java.
 
-## Specifics
+### Specifics
 - A connection to the Northwind database using MariaDB is used. 
 
 ### Contributors 
