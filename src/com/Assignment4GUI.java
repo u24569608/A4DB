@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
@@ -613,25 +615,32 @@ public class Assignment4GUI extends javax.swing.JFrame {
         try {
             // Explicitly load the MariaDB driver
             Class.forName("org.mariadb.jdbc.Driver");
-
-            jTextArea1.append("Driver loaded successfully.\n");
+              
+            LocalTime time = LocalTime.now();
+            String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+            jTextArea1.append("[" + timeString + "] MariaDB JDBC Driver loaded successfully.\n");
 
             // Connect to the database
             connection = DriverManager.getConnection(
                 "jdbc:mariadb://localhost:3306/u24569608_u24634434_northwind", 
                 username, 
                 password);
+               
+            time = LocalTime.now();
+            timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+            jTextArea1.append("[" + timeString + "] Successfully connected to the database.\n");
 
-            jTextArea1.append("Successfully connected to database.\n");
-
-            // Load data into the Employees table (first tab)        
-            // loadTableData("tblEmployees", "SELECT * FROM employees LIMIT 100");
+           
 
         } catch (ClassNotFoundException e) {
-            jTextArea1.append("Error: MariaDB JDBC driver not found. " + e.getMessage() + "\n");
+            LocalTime time = LocalTime.now();
+            String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+            jTextArea1.append("[" + timeString + "] Error: MariaDB JDBC driver not found. " + e.getMessage() + "\n");
             e.printStackTrace();
         } catch (SQLException ex) {
-            jTextArea1.append("Connection error: " + ex.getMessage() + ".\n");
+            LocalTime time = LocalTime.now();
+            String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+            jTextArea1.append("[" + timeString + "] Connection error: " + ex.getMessage() + ".\n");
             ex.printStackTrace();
         }
 
@@ -745,11 +754,15 @@ public class Assignment4GUI extends javax.swing.JFrame {
                     break;
                 // Add cases for other tables if needed
             }
-
-            jTextArea1.append("Loaded data into " + tableComponentName + "\n");
+            
+            LocalTime time = LocalTime.now();
+            String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+            jTextArea1.append("[" + timeString + "] Successfully loaded data into " + tableComponentName + ".\n");
 
         } catch (SQLException ex) {
-            jTextArea1.append("Error loading data: " + ex.getMessage() + "\n");
+            LocalTime time = LocalTime.now();
+            String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+            jTextArea1.append("[" + timeString + "] Error loading data: " + ex.getMessage() + ".\n");
             ex.printStackTrace();
         }
     }
