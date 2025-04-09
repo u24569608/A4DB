@@ -1,0 +1,35 @@
+# Build output
+target/
+build/
+out/
+bin/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+.nb-gradle/
+
+# NetBeans specific
+nbproject/
+nbactions.xml
+nb-configuration.xml
+
+# Log files
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+.m2/
+.gradle/
+
+# Unit test reports
+TEST*.xml
