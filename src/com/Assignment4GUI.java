@@ -63,12 +63,14 @@ public class Assignment4GUI extends javax.swing.JFrame {
         btnFilter = new javax.swing.JButton();
         cmbFields = new javax.swing.JComboBox<>();
         btnLoadEmployeeData = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jTabbedPane5 = new javax.swing.JTabbedPane();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblEmployees1 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btnAddNewProduct = new javax.swing.JButton();
         jTabbedPane7 = new javax.swing.JTabbedPane();
         jScrollPane9 = new javax.swing.JScrollPane();
         tblEmployees3 = new javax.swing.JTable();
@@ -269,6 +271,12 @@ public class Assignment4GUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
+        jLabel7.setText("Load all Employee Data");
+
+        jLabel15.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
+        jLabel15.setText("Filter Employee Data ");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -279,20 +287,26 @@ public class Assignment4GUI extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnLoadEmployeeData, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(edtFilterValue)
-                                .addComponent(cmbFields, 0, 243, Short.MAX_VALUE)))
+                                .addComponent(cmbFields, 0, 243, Short.MAX_VALUE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLoadEmployeeData)
-                .addGap(51, 51, 51)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -300,7 +314,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addComponent(edtFilterValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Actions", jPanel4);
@@ -324,16 +338,16 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
         jTabbedPane5.addTab("Data", jScrollPane7);
 
-        jLabel6.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        jLabel6.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
         jLabel6.setText("Add new product data");
 
-        jButton4.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
-        jButton4.setText("Add new...");
-        jButton4.setName("btnConnect"); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnAddNewProduct.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        btnAddNewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
+        btnAddNewProduct.setText("Add new...");
+        btnAddNewProduct.setName("btnAddNewProduct"); // NOI18N
+        btnAddNewProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnAddNewProductActionPerformed(evt);
             }
         });
 
@@ -346,7 +360,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddNewProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 866, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -356,7 +370,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(btnAddNewProduct)
                 .addContainerGap(241, Short.MAX_VALUE))
         );
 
@@ -618,7 +632,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                     " last_name AS `Last Name`, address AS `Address`," +
                     " city AS `City`, country_region AS `Region`," + 
                     " zip_postal_code AS `Postal Code`, business_phone AS" +
-                    " `Phone`, company AS `Office` FROM employees WHERE " + 
+                    " `Phone`, company AS `Office` FROM employees WHERE job_title IS NOT NULL AND " + 
                     field + " = '" + value + "';";
             
             loadTableData("tblEmployees", SQL_Statement);
@@ -631,9 +645,9 @@ public class Assignment4GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbFieldsActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnAddNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewProductActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnAddNewProductActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
@@ -748,12 +762,12 @@ public class Assignment4GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnAddNewProduct;
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnLoadEmployeeData;
     public javax.swing.JComboBox<String> cmbFields;
     public javax.swing.JTextField edtFilterValue;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -764,10 +778,12 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
