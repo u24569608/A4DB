@@ -4,12 +4,27 @@
  */
 package com;
 
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+
+
+
 /**
  *
  * @author connorbell
  */
 public class Assignment4GUI extends javax.swing.JFrame {
-
+    
+    private Connection connection = null;
+    private Statement statement = null;
+    
+    
     /**
      * Creates new form Assignment4GUI
      */
@@ -74,11 +89,18 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel3.setText("Password");
 
         jPasswordField1.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        jPasswordField1.setText("081410");
         jPasswordField1.setToolTipText("");
         jPasswordField1.setName("edtPassword"); // NOI18N
 
         jTextField1.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        jTextField1.setText("root");
         jTextField1.setName("edtUsername"); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,6 +152,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Andale Mono", 0, 15)); // NOI18N
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -235,8 +258,82 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+            String username = jTextField1.getText();
+            String password = new String(jPasswordField1.getPassword());
+
+            try {
+                // Connect to the database
+                connection = DriverManager.getConnection(
+                    "jdbc:mariadb://localhost:3306/u24569608_u24634434_northwind", 
+                    username, 
+                    password);
+
+                jTextArea1.append("Successfully connected to database!\n");
+
+                // Load data into the Employees table (first tab)
+                loadTableData("tblEmployees", "SELECT * FROM employees LIMIT 100"); // Replace with your table name
+
+            } catch (SQLException ex) {
+                jTextArea1.append("Connection error: " + ex.getMessage() + "\n");
+                ex.printStackTrace();
+            }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void loadTableData(String tableComponentName, String query) {
+        try {
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            ResultSetMetaData metaData = rs.getMetaData();
+
+            // Get column count
+            int columnCount = metaData.getColumnCount();
+
+            // Create a DefaultTableModel to hold the data
+            DefaultTableModel model = new DefaultTableModel();
+
+            // Add column names
+            for (int i = 1; i <= columnCount; i++) {
+                model.addColumn(metaData.getColumnName(i));
+            }
+
+            // Add data rows
+            while (rs.next()) {
+                Object[] row = new Object[columnCount];
+                for (int i = 1; i <= columnCount; i++) {
+                    row[i - 1] = rs.getObject(i);
+                }
+                model.addRow(row);
+            }
+
+            // Find the right table component and set its model
+            switch (tableComponentName) {
+                case "tblEmployees":
+                    jTable1.setModel(model);
+                    break;
+                // Add cases for other tables if needed
+            }
+
+            jTextArea1.append("Loaded data into " + tableComponentName + "\n");
+
+        } catch (SQLException ex) {
+            jTextArea1.append("Error loading data: " + ex.getMessage() + "\n");
+            ex.printStackTrace();
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -295,3 +392,4 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
+
