@@ -247,7 +247,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -257,26 +257,34 @@ public class Assignment4GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-            String username = jTextField1.getText();
-            String password = new String(jPasswordField1.getPassword());
+        String username = jTextField1.getText();
+        String password = new String(jPasswordField1.getPassword());
 
-            try {
-                // Connect to the database
-                connection = DriverManager.getConnection(
-                    "jdbc:mariadb://localhost:3306/u24569608_u24634434_northwind", 
-                    username, 
-                    password);
+        try {
+            // Explicitly load the MariaDB driver
+            Class.forName("org.mariadb.jdbc.Driver");
 
-                jTextArea1.append("Successfully connected to database!\n");
+            jTextArea1.append("Driver loaded successfully\n");
 
-                // Load data into the Employees table (first tab)
-                loadTableData("tblEmployees", "SELECT * FROM employees LIMIT 100"); // Replace with your table name
+            // Connect to the database
+            connection = DriverManager.getConnection(
+                "jdbc:mariadb://localhost:3306/u24569608_u24634434_northwind", 
+                username, 
+                password);
 
-            } catch (SQLException ex) {
-                jTextArea1.append("Connection error: " + ex.getMessage() + "\n");
-                ex.printStackTrace();
-            }
+            jTextArea1.append("Successfully connected to database!\n");
+
+            // Load data into the Employees table (first tab)
+            loadTableData("tblEmployees", "SELECT * FROM employees LIMIT 100");
+
+        } catch (ClassNotFoundException e) {
+            jTextArea1.append("Error: MariaDB JDBC driver not found. " + e.getMessage() + "\n");
+            e.printStackTrace();
+        } catch (SQLException ex) {
+            jTextArea1.append("Connection error: " + ex.getMessage() + "\n");
+            ex.printStackTrace();
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
