@@ -848,7 +848,7 @@
                                       <Component id="jLabel13" alignment="0" pref="201" max="32767" attributes="0"/>
                                       <Component id="cmbUpdateField" alignment="0" max="32767" attributes="0"/>
                                       <Component id="edtUpdateCustomerID" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                      <Component id="edtUpdateNewValue1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="edtUpdateNewValue" alignment="0" max="32767" attributes="0"/>
                                       <Component id="btnUpdateCustomer" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="67" max="32767" attributes="0"/>
@@ -961,7 +961,7 @@
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="jLabel14" min="-2" pref="16" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="edtUpdateNewValue1" min="-2" max="-2" attributes="0"/>
+                          <Component id="edtUpdateNewValue" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnUpdateCustomer" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="58" max="32767" attributes="0"/>
@@ -1117,6 +1117,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="edtSearchCriteria">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="edtSearchCriteria" noResource="true"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnLoadCustomerData">
                   <Properties>
@@ -1231,7 +1234,10 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="edtUpdateNewValue1">
+                <Component class="javax.swing.JTextField" name="edtUpdateNewValue">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="edtUpdateNewValue" noResource="true"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel23">
                   <Properties>

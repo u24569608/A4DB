@@ -110,7 +110,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         cmbSearchField = new javax.swing.JComboBox<>();
-        edtUpdateNewValue1 = new javax.swing.JTextField();
+        edtUpdateNewValue = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         btnSearch = new javax.swing.JButton();
         tbReports = new javax.swing.JTabbedPane();
@@ -608,6 +608,8 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         jLabel14.setText("(New) value: ");
 
+        edtSearchCriteria.setName("edtSearchCriteria"); // NOI18N
+
         btnLoadCustomerData.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         btnLoadCustomerData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
         btnLoadCustomerData.setText("Load Data");
@@ -664,6 +666,8 @@ public class Assignment4GUI extends javax.swing.JFrame {
             }
         });
 
+        edtUpdateNewValue.setName("edtUpdateNewValue"); // NOI18N
+
         jLabel23.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         jLabel23.setText("Search crietria: ");
 
@@ -707,7 +711,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
                             .addComponent(cmbUpdateField, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(edtUpdateCustomerID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtUpdateNewValue1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edtUpdateNewValue, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnUpdateCustomer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -792,7 +796,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtUpdateNewValue1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(edtUpdateNewValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUpdateCustomer)
                 .addContainerGap(58, Short.MAX_VALUE))
@@ -1141,7 +1145,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
             return;
         }
 
-        String newValue = edtSearchCriteria.getText().trim();
+        String newValue = edtUpdateNewValue.getText().trim();
         if (newValue.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter a new value for the selected field.", 
                 "Error", JOptionPane.ERROR_MESSAGE);
@@ -1298,7 +1302,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 
                 if (rs.next()) {
                     String currentValue = rs.getString(1);
-                    edtSearchCriteria.setText(currentValue != null ? currentValue : "");
+                    edtUpdateNewValue.setText(currentValue != null ? currentValue : "");
                 } else {
                     // Customer not found
                     LocalTime time = LocalTime.now();
@@ -1508,7 +1512,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JTextField edtPort;
     private javax.swing.JTextField edtSearchCriteria;
     private javax.swing.JTextField edtUpdateCustomerID;
-    private javax.swing.JTextField edtUpdateNewValue1;
+    private javax.swing.JTextField edtUpdateNewValue;
     private javax.swing.JTextField edtUsername;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
