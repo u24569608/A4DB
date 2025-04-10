@@ -837,35 +837,57 @@
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="btnUpdateCustomer" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                              <Component id="jLabel14" pref="201" max="32767" attributes="0"/>
-                                              <Component id="jLabel12" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                                              <Component id="jLabel13" alignment="0" pref="201" max="32767" attributes="0"/>
-                                              <Component id="edtUpdateNewValue" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="cmbUpdateField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="edtUpdateCustomerID" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel11" max="32767" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel9" min="-2" pref="121" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" min="-2" pref="159" max="-2" attributes="0"/>
-                                      <Component id="edtDeleteCustomerID" min="-2" pref="121" max="-2" attributes="0"/>
-                                      <Component id="btnDeleteCustomer" min="-2" pref="121" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+                                  <Component id="jLabel11" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="btnGetExistingData" min="-2" pref="201" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="btnGetExistingData" max="32767" attributes="0"/>
+                                      <Component id="jLabel14" alignment="0" pref="201" max="32767" attributes="0"/>
+                                      <Component id="jLabel12" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                      <Component id="jLabel13" alignment="0" pref="201" max="32767" attributes="0"/>
+                                      <Component id="cmbUpdateField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="edtUpdateCustomerID" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                      <Component id="edtUpdateNewValue1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnUpdateCustomer" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="67" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel9" min="-2" pref="121" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="jLabel21" min="-2" pref="121" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel10" min="-2" pref="159" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                          <Component id="jLabel22" min="-2" pref="159" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="edtDeleteCustomerID" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                                      <Component id="btnDeleteCustomer" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel23" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="btnSearch" min="-2" pref="124" max="-2" attributes="0"/>
+                                              <Component id="edtSearchCriteria" min="-2" pref="201" max="-2" attributes="0"/>
+                                              <Component id="cmbSearchField" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="75" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -877,7 +899,7 @@
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel11" min="-2" pref="16" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
@@ -892,15 +914,29 @@
                                           <Component id="btnDeleteCustomer" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel9" min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel9" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                                              <Component id="jLabel21" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                                          </Group>
                                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                          <Component id="jLabel10" min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel10" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                                              <Component id="jLabel22" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                                          </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="edtDeleteCustomerID" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="edtDeleteCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cmbSearchField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jLabel23" min="-2" pref="16" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="cmbUpdateField" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="cmbUpdateField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="edtSearchCriteria" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
@@ -918,14 +954,17 @@
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnGetExistingData" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnGetExistingData" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="jLabel14" min="-2" pref="16" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="edtUpdateNewValue" min="-2" max="-2" attributes="0"/>
+                          <Component id="edtUpdateNewValue1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnUpdateCustomer" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="64" max="32767" attributes="0"/>
+                          <EmptySpace pref="58" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1077,7 +1116,7 @@
                     <Property name="text" type="java.lang.String" value="(New) value: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="edtUpdateNewValue">
+                <Component class="javax.swing.JTextField" name="edtSearchCriteria">
                 </Component>
                 <Component class="javax.swing.JButton" name="btnLoadCustomerData">
                   <Properties>
@@ -1138,6 +1177,83 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGetExistingDataActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel21">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".AppleSystemUIFont" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Search Customer"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel22">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".AppleSystemUIFont" size="13" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Choose search field:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cmbSearchField">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".AppleSystemUIFont" size="13" style="0"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="17">
+                        <StringItem index="0" value="id"/>
+                        <StringItem index="1" value="company"/>
+                        <StringItem index="2" value="first_name"/>
+                        <StringItem index="3" value="last_name"/>
+                        <StringItem index="4" value="email_address"/>
+                        <StringItem index="5" value="job_title"/>
+                        <StringItem index="6" value="business_phone"/>
+                        <StringItem index="7" value="home_phone"/>
+                        <StringItem index="8" value="mobile_phone"/>
+                        <StringItem index="9" value="fax_number"/>
+                        <StringItem index="10" value="address"/>
+                        <StringItem index="11" value="city"/>
+                        <StringItem index="12" value="state_province"/>
+                        <StringItem index="13" value="zip_postal_code"/>
+                        <StringItem index="14" value="country_region"/>
+                        <StringItem index="15" value="web_page"/>
+                        <StringItem index="16" value="notes"/>
+                      </StringArray>
+                    </Property>
+                    <Property name="selectedIndex" type="int" value="-1"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbSearchFieldMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSearchFieldActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="edtUpdateNewValue1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel23">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".AppleSystemUIFont" size="13" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Search crietria: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnSearch">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".AppleSystemUIFont" size="13" style="0"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/com/icons8-bolt-16.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Search"/>
+                    <Property name="name" type="java.lang.String" value="btnConnect" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
