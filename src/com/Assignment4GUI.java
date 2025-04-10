@@ -35,6 +35,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
     public Assignment4GUI() {
         initComponents();
         setLocationRelativeTo(null);
+        redMessages.append("A4DB Version 1 ©2025 Connor Bell, Adriano Jorge (University of Pretoria) \n");
     }
 
     /**
@@ -448,7 +449,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         tbProducts.addTab("Data", jScrollPane7);
 
         jLabel6.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
-        jLabel6.setText("Add new product data");
+        jLabel6.setText("Add new Product");
 
         btnAddNewProduct.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         btnAddNewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/form.png"))); // NOI18N
@@ -471,7 +472,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         });
 
         jLabel16.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
-        jLabel16.setText("Load all Products data");
+        jLabel16.setText("Load all Product data");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -531,7 +532,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jPanel7.setToolTipText("");
 
         jLabel8.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
-        jLabel8.setText("Add Customer ");
+        jLabel8.setText("Add new Customer ");
 
         btnAddNewCustomer.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         btnAddNewCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/form.png"))); // NOI18N
@@ -683,17 +684,17 @@ public class Assignment4GUI extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLoadEmployeeData2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnLoadCustomerData, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(55, 55, 55)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddNewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnLoadEmployeeData2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                            .addComponent(btnAddNewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(23, 23, 23)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -887,7 +888,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
             time = LocalTime.now();
             timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
             redMessages.append("[" + timeString + "] Successfully connected to the database.\n");
-            redMessages.append("Connection Information: " + dbURL); 
+            redMessages.append("Connection Information: '" + dbURL + "'.\n"); 
             // Enable tabs 
             pgctrlMain.enable();
             tbEmployees.enable();
@@ -1339,6 +1340,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        // Search the customer database (searchable customer database)
         if (cmbSearchField.getSelectedIndex() != -1) {
             String field = (String) cmbSearchField.getItemAt(cmbSearchField.getSelectedIndex()); 
             String value = edtSearchCriteria.getText(); 
@@ -1346,7 +1348,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
             String SQL_Statement = "SELECT * FROM customers WHERE " +
                     field + " = '" + value + "';"; 
             
-            loadTableData("tblEmployees", SQL_Statement);
+            loadTableData("tblCustomers", SQL_Statement);
             
         }
     }//GEN-LAST:event_btnSearchActionPerformed

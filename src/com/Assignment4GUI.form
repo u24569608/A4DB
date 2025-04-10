@@ -706,7 +706,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name=".AppleSystemUIFont" size="13" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Add new product data"/>
+                    <Property name="text" type="java.lang.String" value="Add new Product"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAddNewProduct">
@@ -747,7 +747,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name=".AppleSystemUIFont" size="13" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Load all Products data"/>
+                    <Property name="text" type="java.lang.String" value="Load all Product data"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -820,21 +820,21 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Component id="btnLoadEmployeeData2" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                              <Component id="jLabel18" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnLoadCustomerData" min="-2" pref="121" max="-2" attributes="0"/>
                                       <Component id="jLabel17" min="-2" pref="172" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel8" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
-                                      <Component id="btnAddNewCustomer" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                                      <Component id="btnAddNewCustomer" min="-2" pref="121" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" min="-2" pref="153" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="btnLoadEmployeeData2" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
-                              <Component id="jLabel18" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jLabel11" max="32767" attributes="0"/>
@@ -975,7 +975,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name=".AppleSystemUIFont" size="13" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Add Customer "/>
+                    <Property name="text" type="java.lang.String" value="Add new Customer "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAddNewCustomer">
