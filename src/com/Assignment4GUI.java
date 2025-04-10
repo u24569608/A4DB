@@ -154,12 +154,10 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel3.setText("Password");
 
         edtPassword.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
-        edtPassword.setText("081410");
         edtPassword.setToolTipText("");
         edtPassword.setName("edtPassword"); // NOI18N
 
         edtUsername.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        edtUsername.setText("root");
         edtUsername.setName("edtUsername"); // NOI18N
         edtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +166,6 @@ public class Assignment4GUI extends javax.swing.JFrame {
         });
 
         edtDatabaseName.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        edtDatabaseName.setText("u24569608_u24634434_northwind");
         edtDatabaseName.setName("edtDatabaseName"); // NOI18N
         edtDatabaseName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +177,6 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel4.setText("Name");
 
         edtPort.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        edtPort.setText("3306");
         edtPort.setName("edtDatabaseName"); // NOI18N
         edtPort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,7 +188,6 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel19.setText("Port");
 
         edtAddress.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        edtAddress.setText("localhost");
         edtAddress.setName("edtDatabaseName"); // NOI18N
         edtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
