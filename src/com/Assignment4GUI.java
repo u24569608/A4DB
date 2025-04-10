@@ -51,10 +51,12 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         edtPassword = new javax.swing.JPasswordField();
         edtUsername = new javax.swing.JTextField();
+        edtDatabaseName = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         pnlMessages = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        redMessages = new javax.swing.JTextArea();
         pgctrlMain = new javax.swing.JTabbedPane();
         tbEmployees = new javax.swing.JTabbedPane();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -77,22 +79,26 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         tbNotifications = new javax.swing.JTabbedPane();
         jScrollPane9 = new javax.swing.JScrollPane();
-        tblEmployees3 = new javax.swing.JTable();
+        tblCustomers = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        btnAddNewCustomer = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        edtDeleteCustomerID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        btnDeleteCustomer = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        edtUpdateCustomerID = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        btnUpdateCustomer = new javax.swing.JButton();
+        cmbUpdateField = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        edtUpdateNewValue = new javax.swing.JTextField();
+        btnLoadCustomerData = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        btnLoadEmployeeData2 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
         tbReports = new javax.swing.JTabbedPane();
         jScrollPane8 = new javax.swing.JScrollPane();
         tblReport = new javax.swing.JTable();
@@ -142,6 +148,18 @@ public class Assignment4GUI extends javax.swing.JFrame {
             }
         });
 
+        edtDatabaseName.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        edtDatabaseName.setText("u24569608_u24634434_northwind");
+        edtDatabaseName.setName("edtDatabaseName"); // NOI18N
+        edtDatabaseName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtDatabaseNameActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        jLabel4.setText("Database");
+
         javax.swing.GroupLayout pnlConnectionLayout = new javax.swing.GroupLayout(pnlConnection);
         pnlConnection.setLayout(pnlConnectionLayout);
         pnlConnectionLayout.setHorizontalGroup(
@@ -149,18 +167,22 @@ public class Assignment4GUI extends javax.swing.JFrame {
             .addGroup(pnlConnectionLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlConnectionLayout.createSequentialGroup()
+                        .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtDatabaseName, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(edtUsername))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(edtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlConnectionLayout.createSequentialGroup()
                                 .addComponent(edtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlConnectionLayout.setVerticalGroup(
@@ -171,12 +193,15 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConnect))
+                .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(edtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnConnect))
+                    .addComponent(edtDatabaseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
 
@@ -192,11 +217,13 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jScrollPane1.setToolTipText("Messages");
         jScrollPane1.setName("tbMessages"); // NOI18N
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Andale Mono", 0, 15)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        redMessages.setBackground(new java.awt.Color(0, 0, 0));
+        redMessages.setColumns(20);
+        redMessages.setFont(new java.awt.Font("Courier New", 1, 15)); // NOI18N
+        redMessages.setForeground(new java.awt.Color(51, 255, 0));
+        redMessages.setLineWrap(true);
+        redMessages.setRows(5);
+        jScrollPane1.setViewportView(redMessages);
 
         jTabbedPane1.addTab("Messages", new javax.swing.ImageIcon(getClass().getResource("/com/messages.png")), jScrollPane1); // NOI18N
 
@@ -303,7 +330,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -393,7 +420,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnLoadProductsData, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -423,7 +450,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         tbNotifications.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         tbNotifications.setName("tbNotifications"); // NOI18N
 
-        tblEmployees3.setModel(new javax.swing.table.DefaultTableModel(
+        tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -434,8 +461,8 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
             }
         ));
-        tblEmployees3.setName("tblEmployees"); // NOI18N
-        jScrollPane9.setViewportView(tblEmployees3);
+        tblCustomers.setName("tblEmployees"); // NOI18N
+        jScrollPane9.setViewportView(tblCustomers);
 
         tbNotifications.addTab("Data", jScrollPane9);
 
@@ -444,61 +471,61 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
         jLabel8.setText("Add Customer ");
 
-        jButton6.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
-        jButton6.setText("Add new...");
-        jButton6.setName("btnConnect"); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnAddNewCustomer.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        btnAddNewCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
+        btnAddNewCustomer.setText("Add new...");
+        btnAddNewCustomer.setName("btnConnect"); // NOI18N
+        btnAddNewCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnAddNewCustomerActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
         jLabel9.setText("Delete Customer");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        edtDeleteCustomerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                edtDeleteCustomerIDActionPerformed(evt);
             }
         });
 
         jLabel10.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         jLabel10.setText("Enter the Customer ID:");
 
-        jButton7.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
-        jButton7.setText("Delete");
-        jButton7.setName("btnConnect"); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteCustomer.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        btnDeleteCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
+        btnDeleteCustomer.setText("Delete");
+        btnDeleteCustomer.setName("btnConnect"); // NOI18N
+        btnDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnDeleteCustomerActionPerformed(evt);
             }
         });
 
         jLabel11.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
         jLabel11.setText("Update Customer");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        edtUpdateCustomerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                edtUpdateCustomerIDActionPerformed(evt);
             }
         });
 
         jLabel12.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         jLabel12.setText("Enter the Customer ID:");
 
-        jButton8.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
-        jButton8.setText("Update");
-        jButton8.setName("btnConnect"); // NOI18N
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateCustomer.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        btnUpdateCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
+        btnUpdateCustomer.setText("Update");
+        btnUpdateCustomer.setName("btnConnect"); // NOI18N
+        btnUpdateCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnUpdateCustomerActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbUpdateField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel13.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         jLabel13.setText("Choose the field to update: ");
@@ -506,40 +533,74 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         jLabel14.setText("New value: ");
 
+        btnLoadCustomerData.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        btnLoadCustomerData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
+        btnLoadCustomerData.setText("Load Data");
+        btnLoadCustomerData.setName("btnLoadEmployeeData"); // NOI18N
+        btnLoadCustomerData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadCustomerDataActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
+        jLabel17.setText("Load all Customer data");
+
+        btnLoadEmployeeData2.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        btnLoadEmployeeData2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
+        btnLoadEmployeeData2.setText("Load Data");
+        btnLoadEmployeeData2.setName("btnLoadEmployeeData"); // NOI18N
+        btnLoadEmployeeData2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadEmployeeData2ActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
+        jLabel18.setText("Load inactive Customers");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLoadCustomerData, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddNewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnLoadEmployeeData2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUpdateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbUpdateField, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtUpdateNewValue, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtUpdateCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(55, 55, 55)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(396, Short.MAX_VALUE))
+                    .addComponent(edtDeleteCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(256, 256, 256))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(7, 7, 7)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -548,31 +609,39 @@ public class Assignment4GUI extends javax.swing.JFrame {
                                 .addGap(7, 7, 7)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(edtUpdateCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(74, 74, 74)
-                                .addComponent(jButton7))
+                                .addComponent(btnDeleteCustomer))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(edtDeleteCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbUpdateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(7, 7, 7)
-                        .addComponent(jButton6)))
+                        .addComponent(btnAddNewCustomer))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLoadCustomerData)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLoadEmployeeData2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(edtUpdateNewValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addComponent(btnUpdateCustomer)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         tbNotifications.addTab("Actions", jPanel7);
@@ -630,6 +699,9 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getAccessibleContext().setAccessibleName("Curious SQL ");
+        getAccessibleContext().setAccessibleDescription("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -643,29 +715,31 @@ public class Assignment4GUI extends javax.swing.JFrame {
               
             LocalTime time = LocalTime.now();
             String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-            jTextArea1.append("[" + timeString + "] MariaDB JDBC Driver loaded successfully.\n");
-
+            redMessages.append("[" + timeString + "] MariaDB JDBC Driver loaded successfully.\n");
+                
+            String dbURL = "jdbc:mariadb://localhost:3306/" + edtDatabaseName.getText(); 
             // Connect to the database
             connection = DriverManager.getConnection(
-                "jdbc:mariadb://localhost:3306/u24569608_u24634434_northwind", 
+                //"jdbc:mariadb://localhost:3306/u24569608_u24634434_northwind",
+                    dbURL, 
                 username, 
                 password);
                
             time = LocalTime.now();
             timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-            jTextArea1.append("[" + timeString + "] Successfully connected to the database.\n");
+            redMessages.append("[" + timeString + "] Successfully connected to the database.\n");
 
            
 
         } catch (ClassNotFoundException e) {
             LocalTime time = LocalTime.now();
             String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-            jTextArea1.append("[" + timeString + "] Error: MariaDB JDBC driver not found. " + e.getMessage() + "\n");
+            redMessages.append("[" + timeString + "] Error: MariaDB JDBC driver not found. " + e.getMessage() + "\n");
             e.printStackTrace();
         } catch (SQLException ex) {
             LocalTime time = LocalTime.now();
             String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-            jTextArea1.append("[" + timeString + "] Connection error: " + ex.getMessage() + ".\n");
+            redMessages.append("[" + timeString + "] Connection error: " + ex.getMessage() + ".\n");
             ex.printStackTrace();
         }
 
@@ -716,25 +790,160 @@ public class Assignment4GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddNewProductActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnAddNewCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewCustomerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnAddNewCustomerActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void edtDeleteCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtDeleteCustomerIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_edtDeleteCustomerIDActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+        // DELETE THE CUSTOMER ID CODE HERE 
+                                                     
+       if (connection == null) {
+        JOptionPane.showMessageDialog(this, "Error: Please connect to the database first.", 
+            "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+        String customerIdStr = edtDeleteCustomerID.getText().trim();
+        if (customerIdStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter a Customer ID to delete.", 
+                "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        try {
+            // First check if the customer exists
+            Statement stmt = connection.createStatement();
+            String checkSql = "SELECT id FROM customers WHERE id = '" + customerIdStr + "'";
+            ResultSet rs = stmt.executeQuery(checkSql);
+
+            if (!rs.next()) {
+                // Customer not found
+                LocalTime time = LocalTime.now();
+                String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                redMessages.append("[" + timeString + "] Customer with ID " + customerIdStr + " was not found in the database.\n");
+                JOptionPane.showMessageDialog(this, "Customer with ID " + customerIdStr + " was not found.", 
+                    "Not Found", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+
+            // Check if customer has orders
+            String checkOrdersSql = "SELECT COUNT(*) AS order_count FROM orders WHERE customer_id = '" + customerIdStr + "'";
+            rs = stmt.executeQuery(checkOrdersSql);
+            rs.next();
+            int orderCount = rs.getInt("order_count");
+
+            if (orderCount > 0) {
+                // Customer has orders - check for invoices
+                String checkInvoicesSql = "SELECT COUNT(*) AS invoice_count FROM invoices i " +
+                                         "JOIN orders o ON i.order_id = o.id " +
+                                         "WHERE o.customer_id = '" + customerIdStr + "'";
+                rs = stmt.executeQuery(checkInvoicesSql);
+                rs.next();
+                int invoiceCount = rs.getInt("invoice_count");
+
+                String message = "This customer has " + orderCount + " associated orders";
+                if (invoiceCount > 0) {
+                    message += " and " + invoiceCount + " invoices";
+                }
+                message += ". Do you want to delete all associated records?";
+
+                int confirm = JOptionPane.showConfirmDialog(this, 
+                    message, 
+                    "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+
+                if (confirm == JOptionPane.YES_OPTION) {
+                    try {
+                        // Disable foreign key checks temporarily
+                        stmt.execute("SET FOREIGN_KEY_CHECKS = 0");
+
+                        // First delete invoices (if any)
+                        if (invoiceCount > 0) {
+                            String deleteInvoicesSql = "DELETE i FROM invoices i " +
+                                                     "JOIN orders o ON i.order_id = o.id " +
+                                                     "WHERE o.customer_id = '" + customerIdStr + "'";
+                            stmt.executeUpdate(deleteInvoicesSql);
+                        }
+
+                        // Then delete the orders
+                        String deleteOrdersSql = "DELETE FROM orders WHERE customer_id = '" + customerIdStr + "'";
+                        stmt.executeUpdate(deleteOrdersSql);
+
+                        // Finally delete the customer
+                        String deleteCustomerSql = "DELETE FROM customers WHERE id = '" + customerIdStr + "'";
+                        int rowsAffected = stmt.executeUpdate(deleteCustomerSql);
+
+                        // Re-enable foreign key checks
+                        stmt.execute("SET FOREIGN_KEY_CHECKS = 1");
+
+                        if (rowsAffected > 0) {
+                            LocalTime time = LocalTime.now();
+                            String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                            redMessages.append("[" + timeString + "] Customer: " + customerIdStr + 
+                                             " and all related records (" + orderCount + " orders" + 
+                                             (invoiceCount > 0 ? ", " + invoiceCount + " invoices" : "") + 
+                                             ") were successfully deleted.\n");
+                            JOptionPane.showMessageDialog(this, 
+                                "Customer with ID " + customerIdStr + " and all related records were successfully deleted.", 
+                                "Success", JOptionPane.INFORMATION_MESSAGE);
+                            edtDeleteCustomerID.setText("");
+                        }
+                        
+                    
+                        
+                    } catch (SQLException ex) {
+                        // Make sure to re-enable foreign key checks if something fails
+                        try {
+                            stmt.execute("SET FOREIGN_KEY_CHECKS = 1");
+                        } catch (SQLException e) {
+                            // Ignore if this fails
+                        }
+                        LocalTime time = LocalTime.now();
+                        String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                        redMessages.append("[" + timeString + "] Error deleting customer and related records: " + ex.getMessage() + ".\n");
+                        JOptionPane.showMessageDialog(this, 
+                            "Error deleting customer and related records: " + ex.getMessage(), 
+                            "Database Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            } else {
+                // No orders - just delete the customer
+                String deleteCustomerSql = "DELETE FROM customers WHERE id = '" + customerIdStr + "'";
+                int rowsAffected = stmt.executeUpdate(deleteCustomerSql);
+
+                if (rowsAffected > 0) {
+                    LocalTime time = LocalTime.now();
+                    String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                    redMessages.append("[" + timeString + "] Customer: " + customerIdStr + " was successfully deleted from the database.\n");
+                    JOptionPane.showMessageDialog(this, "Customer with ID " + customerIdStr + " was successfully deleted.", 
+                        "Success", JOptionPane.INFORMATION_MESSAGE);
+                    edtDeleteCustomerID.setText("");
+                }
+            }
+        } catch (SQLException ex) {
+            LocalTime time = LocalTime.now();
+            String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+            redMessages.append("[" + timeString + "] Error deleting customer: " + ex.getMessage() + ".\n");
+            JOptionPane.showMessageDialog(this, "Error deleting customer: " + ex.getMessage(), 
+                "Database Error", JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
+        
+        // Update the table: 
+        loadTableData("tblCustomers", "SELECT * FROM customers");
+    }//GEN-LAST:event_btnDeleteCustomerActionPerformed
+
+    private void edtUpdateCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtUpdateCustomerIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_edtUpdateCustomerIDActionPerformed
+
+    private void btnUpdateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCustomerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateCustomerActionPerformed
 
     private void btnLoadEmployeeDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadEmployeeDataActionPerformed
         // Load data into the Employees table (first tab)        
@@ -787,6 +996,21 @@ public class Assignment4GUI extends javax.swing.JFrame {
                            
     }//GEN-LAST:event_tbReportsMouseClicked
 
+    private void edtDatabaseNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtDatabaseNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtDatabaseNameActionPerformed
+
+    private void btnLoadCustomerDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadCustomerDataActionPerformed
+        // TODO add your handling code here:
+        // Load all customer data into tblCustomers: 
+        String SQL_Statement = "SELECT * FROM customers;"; 
+        loadTableData("tblCustomers", SQL_Statement);
+    }//GEN-LAST:event_btnLoadCustomerDataActionPerformed
+
+    private void btnLoadEmployeeData2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadEmployeeData2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLoadEmployeeData2ActionPerformed
+
     private void loadTableData(String tableComponentName, String query) {
         try {
             statement = connection.createStatement();
@@ -824,17 +1048,20 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 case "tblReport":
                     tblReport.setModel(model); 
                     break;
+                case "tblCustomers":
+                    tblCustomers.setModel(model);
+                    break; 
                 // Add cases for other tables if needed
             }
             
             LocalTime time = LocalTime.now();
             String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-            jTextArea1.append("[" + timeString + "] Successfully loaded data into " + tableComponentName + ".\n");
+            redMessages.append("[" + timeString + "] Successfully loaded data into " + tableComponentName + ".\n");
 
         } catch (SQLException ex) {
             LocalTime time = LocalTime.now();
             String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-            jTextArea1.append("[" + timeString + "] Error loading data: " + ex.getMessage() + ".\n");
+            redMessages.append("[" + timeString + "] Error loading data: " + ex.getMessage() + ".\n");
             ex.printStackTrace();
         }
     }
@@ -916,19 +1143,25 @@ public class Assignment4GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddNewCustomer;
     public javax.swing.JButton btnAddNewProduct;
     private javax.swing.JButton btnConnect;
+    private javax.swing.JButton btnDeleteCustomer;
     private javax.swing.JButton btnFilter;
+    private javax.swing.JButton btnLoadCustomerData;
     private javax.swing.JButton btnLoadEmployeeData;
+    private javax.swing.JButton btnLoadEmployeeData2;
     private javax.swing.JButton btnLoadProductsData;
+    private javax.swing.JButton btnUpdateCustomer;
     public javax.swing.JComboBox<String> cmbFields;
+    private javax.swing.JComboBox<String> cmbUpdateField;
+    private javax.swing.JTextField edtDatabaseName;
+    private javax.swing.JTextField edtDeleteCustomerID;
     public javax.swing.JTextField edtFilterValue;
     private javax.swing.JPasswordField edtPassword;
+    private javax.swing.JTextField edtUpdateCustomerID;
+    private javax.swing.JTextField edtUpdateNewValue;
     private javax.swing.JTextField edtUsername;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -937,8 +1170,11 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -953,19 +1189,16 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTabbedPane pgctrlMain;
     private javax.swing.JPanel pnlConnection;
     private javax.swing.JPanel pnlMessages;
+    private javax.swing.JTextArea redMessages;
     private javax.swing.JTabbedPane tbEmployees;
     private javax.swing.JTabbedPane tbNotifications;
     private javax.swing.JTabbedPane tbProducts;
     private javax.swing.JTabbedPane tbReports;
+    private javax.swing.JTable tblCustomers;
     private javax.swing.JTable tblEmployees;
-    private javax.swing.JTable tblEmployees3;
     private javax.swing.JTable tblProducts;
     private javax.swing.JTable tblReport;
     // End of variables declaration//GEN-END:variables
