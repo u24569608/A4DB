@@ -2,7 +2,7 @@
 COS 221 Practical Assignment 4 Northwind Database GUI using Java.
 
 ### Specifics
-- A connection to the Northwind database using MariaDB is used.
+- This applicaiton provides a GUI interface to connect to a Northwind database using MariaDB. You can perform a number of specific functions with the application based on the practical assignment specification.  
 
 ### Using the Application
 To use the application, you need the following: 
