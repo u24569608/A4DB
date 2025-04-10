@@ -225,7 +225,6 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jScrollPane1.setToolTipText("Messages");
         jScrollPane1.setName("tbMessages"); // NOI18N
 
-        redMessages.setEditable(false);
         redMessages.setBackground(new java.awt.Color(0, 0, 0));
         redMessages.setColumns(20);
         redMessages.setFont(new java.awt.Font("Courier New", 1, 15)); // NOI18N
