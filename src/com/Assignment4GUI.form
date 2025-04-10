@@ -10,7 +10,7 @@
     <Property name="name" type="java.lang.String" value="frmMain" noResource="true"/>
   </Properties>
   <AccessibilityProperties>
-    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Curious SQL "/>
+    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
     <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
   </AccessibilityProperties>
   <SyntheticProperties>

@@ -732,7 +732,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getAccessibleContext().setAccessibleName("Curious SQL ");
+        getAccessibleContext().setAccessibleName("");
         getAccessibleContext().setAccessibleDescription("");
 
         pack();
@@ -825,6 +825,17 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
     private void btnAddNewCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewCustomerActionPerformed
         // TODO add your handling code here:
+        if (connection == null) {
+           JOptionPane.showMessageDialog(this, "Error: Please connect to the database first.", 
+               "Error", JOptionPane.ERROR_MESSAGE);
+       } else {
+           // Create and show the customer add dialog
+           CustomerAddDialog dialog = new CustomerAddDialog(this, true, connection);
+           dialog.setVisible(true);
+
+           // After dialog closes, refresh the customers table
+           loadTableData("tblCustomers", "SELECT * FROM customers");
+       }
     }//GEN-LAST:event_btnAddNewCustomerActionPerformed
 
     private void edtDeleteCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtDeleteCustomerIDActionPerformed
@@ -1045,6 +1056,8 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No changes were made to the customer record.", 
                     "Information", JOptionPane.INFORMATION_MESSAGE);
             }
+            
+            
         } catch (SQLException ex) {
             LocalTime time = LocalTime.now();
             String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));

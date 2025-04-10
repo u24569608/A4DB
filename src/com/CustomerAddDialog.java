@@ -4,20 +4,34 @@
  */
 package com;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+
 /**
  *
  * @author connorbell
  */
 public class CustomerAddDialog extends javax.swing.JDialog {
-
+    public Connection connection;
     /**
      * Creates new form CustoemrAddDialog
      */
-    public CustomerAddDialog(java.awt.Frame parent, boolean modal) {
+    public CustomerAddDialog(java.awt.Frame parent, boolean modal, Connection connection) {
         super(parent, modal);
+        this.connection = connection;
         initComponents();
+        setupListeners();
     }
-
+    
+     private void setupListeners() {
+        btnAddCustomerData.addActionListener(e -> addCustomer());
+        btnCancel.addActionListener(e -> dispose());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,7 +79,9 @@ public class CustomerAddDialog extends javax.swing.JDialog {
         jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(429, 424));
+        setTitle("Add New Customer Data");
+        setAlwaysOnTop(true);
+        setPreferredSize(new java.awt.Dimension(496, 715));
 
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jLabel1.setText("Add New Customer Data");
@@ -214,7 +230,7 @@ public class CustomerAddDialog extends javax.swing.JDialog {
                                     .addComponent(edtFaxNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(edtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(19, Short.MAX_VALUE))
+                        .addContainerGap(20, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -346,52 +362,92 @@ public class CustomerAddDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddCustomerDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerDataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddCustomerDataActionPerformed
+    private void addCustomer() {
+       // Get all values from the form
+        String company = edtCompanyName.getText().trim();
+        String firstName = edtFirstName.getText().trim();
+        String lastName = edtLastName.getText().trim();
+        String email = edtEmailAddress.getText().trim();
+        String jobTitle = edtJobTitle.getText().trim();
+        String businessPhone = edtBusinessPhone.getText().trim();
+        String homePhone = edtHomePhone.getText().trim();
+        String mobilePhone = edtMobileNumber.getText().trim();
+        String faxNumber = edtFaxNumber.getText().trim();
+        String address = edtAddress.getText().trim();
+        String city = edtCity.getText().trim();
+        String stateProvince = edtStateProvince.getText().trim();
+        String zipPostalCode = edtZIPPostalCode.getText().trim();
+        String countryRegion = edtCountryRegion.getText().trim();
+        String webpage = edtWebpage.getText().trim();
+        String notes = edtNotes.getText().trim();
 
+        // Validate required fields
+        if (company.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "Company, First Name, Last Name, and Email are required fields.", 
+                "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            // Create the SQL INSERT statement
+            String sql = "INSERT INTO customers (company, first_name, last_name, email_address, " +
+                         "job_title, business_phone, home_phone, mobile_phone, fax_number, address, " +
+                         "city, state_province, zip_postal_code, country_region, web_page, notes) " +
+                         "VALUES ('" + company + "', '" + firstName + "', '" + lastName + "', '" + 
+                         email + "', '" + jobTitle + "', '" + businessPhone + "', '" + homePhone + 
+                         "', '" + mobilePhone + "', '" + faxNumber + "', '" + address + "', '" + 
+                         city + "', '" + stateProvince + "', '" + zipPostalCode + "', '" + 
+                         countryRegion + "', '" + webpage + "', '" + notes + "')";
+
+            Statement stmt = connection.createStatement();
+            int rowsAffected = stmt.executeUpdate(sql);
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(this, 
+                    "Customer successfully added to the database.", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+
+                // Clear the form
+                clearForm();
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, 
+                "Error adding customer: " + ex.getMessage(), 
+                "Database Error", JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }  
+        
+        dispose(); 
+    }
+    
+    private void btnAddCustomerDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerDataActionPerformed
+        
+    }//GEN-LAST:event_btnAddCustomerDataActionPerformed
+    
+    private void clearForm() {
+        edtCompanyName.setText("");
+        edtFirstName.setText("");
+        edtLastName.setText("");
+        edtEmailAddress.setText("");
+        edtJobTitle.setText("");
+        edtBusinessPhone.setText("");
+        edtHomePhone.setText("");
+        edtMobileNumber.setText("");
+        edtFaxNumber.setText("");
+        edtAddress.setText("");
+        edtCity.setText("");
+        edtStateProvince.setText("");
+        edtZIPPostalCode.setText("");
+        edtCountryRegion.setText("");
+        edtWebpage.setText("");
+        edtNotes.setText("");
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomerAddDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomerAddDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomerAddDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerAddDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                CustomerAddDialog dialog = new CustomerAddDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCustomerData;
