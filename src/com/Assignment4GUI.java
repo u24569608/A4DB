@@ -475,7 +475,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel8.setText("Add Customer ");
 
         btnAddNewCustomer.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        btnAddNewCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
+        btnAddNewCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/form.png"))); // NOI18N
         btnAddNewCustomer.setText("Add new...");
         btnAddNewCustomer.setName("btnConnect"); // NOI18N
         btnAddNewCustomer.addActionListener(new java.awt.event.ActionListener() {
