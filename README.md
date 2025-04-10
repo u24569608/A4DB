@@ -7,8 +7,7 @@ COS 221 Practical Assignment 4 Northwind Database GUI using Java.
 ### Using the Application
 To use the application, you need the following: 
 - An existing Northwind database in MariaDB running on localhost listening to port 3306. 
-- The application files (Java files).
-
+- The application files (Java files), which you can download from GitHub here: https://github.com/u24569608/A4DB/
   
 When you run the application, please enter the name of your Northwind database in Database. Then, enter the usename and password for your MariaDB (MySQL) setup, and click "Connect". You will then be connected to your Northwind database and you can fully utilise the application. 
 
