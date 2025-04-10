@@ -31,9 +31,9 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTabbedPane2" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="pgctrlMain" alignment="1" max="32767" attributes="0"/>
+                  <Component id="pnlMessages" alignment="1" max="32767" attributes="0"/>
+                  <Component id="pnlConnection" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -43,18 +43,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlConnection" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jTabbedPane2" min="-2" pref="367" max="-2" attributes="0"/>
+              <Component id="pgctrlMain" min="-2" pref="367" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlMessages" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="pnlConnection">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -67,6 +67,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="pnlConnection" noResource="true"/>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
 
@@ -80,14 +81,14 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel2" pref="135" max="32767" attributes="0"/>
-                              <Component id="jTextField1" max="32767" attributes="0"/>
+                              <Component id="edtUsername" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPasswordField1" min="-2" pref="147" max="-2" attributes="0"/>
+                                  <Component id="edtPassword" min="-2" pref="147" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="121" max="-2" attributes="0"/>
+                                  <Component id="btnConnect" min="-2" pref="121" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel3" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
                           </Group>
@@ -109,9 +110,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="edtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="edtUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnConnect" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
@@ -119,7 +120,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnConnect">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name=".AppleSystemUIFont" size="13" style="0"/>
@@ -134,7 +135,7 @@
             <Property name="name" type="java.lang.String" value="btnConnect" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConnectActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -161,7 +162,7 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+        <Component class="javax.swing.JPasswordField" name="edtPassword">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Futura" size="13" style="0"/>
@@ -171,7 +172,7 @@
             <Property name="name" type="java.lang.String" value="edtPassword" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="edtUsername">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name=".AppleSystemUIFont" size="13" style="0"/>
@@ -180,12 +181,12 @@
             <Property name="name" type="java.lang.String" value="edtUsername" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtUsernameActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="pnlMessages">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -273,16 +274,26 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane2">
+    <Container class="javax.swing.JTabbedPane" name="pgctrlMain">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name=".AppleSystemUIFont" size="13" style="0"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="pgctrlMain" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pgctrlMainMouseClicked"/>
+      </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane4">
+        <Container class="javax.swing.JTabbedPane" name="tbEmployees">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".AppleSystemUIFont" size="13" style="0"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="tbEmployees" noResource="true"/>
+          </Properties>
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Data"/>
           </AccessibilityProperties>
@@ -432,21 +443,22 @@
                       <Font name=".AppleSystemUIFont" size="13" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="14">
+                      <StringArray count="15">
                         <StringItem index="0" value="first_name"/>
                         <StringItem index="1" value="last_name"/>
                         <StringItem index="2" value="email_address"/>
-                        <StringItem index="3" value="job_title"/>
-                        <StringItem index="4" value="business_phone"/>
-                        <StringItem index="5" value="home_phone"/>
-                        <StringItem index="6" value="mobile_phone"/>
-                        <StringItem index="7" value="fax_number"/>
-                        <StringItem index="8" value="address"/>
-                        <StringItem index="9" value="state_province"/>
-                        <StringItem index="10" value="zip_postal_code"/>
-                        <StringItem index="11" value="country_region"/>
-                        <StringItem index="12" value="web_page"/>
-                        <StringItem index="13" value="notes"/>
+                        <StringItem index="3" value="city"/>
+                        <StringItem index="4" value="job_title"/>
+                        <StringItem index="5" value="business_phone"/>
+                        <StringItem index="6" value="home_phone"/>
+                        <StringItem index="7" value="mobile_phone"/>
+                        <StringItem index="8" value="fax_number"/>
+                        <StringItem index="9" value="address"/>
+                        <StringItem index="10" value="state_province"/>
+                        <StringItem index="11" value="zip_postal_code"/>
+                        <StringItem index="12" value="country_region"/>
+                        <StringItem index="13" value="web_page"/>
+                        <StringItem index="14" value="notes"/>
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
@@ -494,7 +506,13 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane5">
+        <Container class="javax.swing.JTabbedPane" name="tbProducts">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".AppleSystemUIFont" size="13" style="0"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="tbProducts" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Products">
@@ -634,7 +652,13 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane7">
+        <Container class="javax.swing.JTabbedPane" name="tbNotifications">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".AppleSystemUIFont" size="13" style="0"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="tbNotifications" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Notifications">
@@ -665,12 +689,7 @@
                 <Component class="javax.swing.JTable" name="tblEmployees3">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                      </Table>
+                      <Table columnCount="0" rowCount="4"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="tblEmployees" noResource="true"/>
                   </Properties>
@@ -906,7 +925,13 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane6">
+        <Container class="javax.swing.JTabbedPane" name="tbReports">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".AppleSystemUIFont" size="13" style="0"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="tbReports" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Reports">
@@ -936,13 +961,11 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="tblEmployees2">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".AppleSystemUIFont" size="13" style="0"/>
+                    </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                      </Table>
+                      <Table columnCount="0" rowCount="4"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="tblEmployees" noResource="true"/>
                   </Properties>

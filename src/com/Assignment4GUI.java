@@ -44,19 +44,19 @@ public class Assignment4GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        pnlConnection = new javax.swing.JPanel();
+        btnConnect = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        edtPassword = new javax.swing.JPasswordField();
+        edtUsername = new javax.swing.JTextField();
+        pnlMessages = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jTabbedPane4 = new javax.swing.JTabbedPane();
+        pgctrlMain = new javax.swing.JTabbedPane();
+        tbEmployees = new javax.swing.JTabbedPane();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblEmployees = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -67,7 +67,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         btnLoadEmployeeData = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTabbedPane5 = new javax.swing.JTabbedPane();
+        tbProducts = new javax.swing.JTabbedPane();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblProducts = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
@@ -75,7 +75,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         btnAddNewProduct = new javax.swing.JButton();
         btnLoadProductsData = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        jTabbedPane7 = new javax.swing.JTabbedPane();
+        tbNotifications = new javax.swing.JTabbedPane();
         jScrollPane9 = new javax.swing.JScrollPane();
         tblEmployees3 = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
@@ -93,7 +93,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jTabbedPane6 = new javax.swing.JTabbedPane();
+        tbReports = new javax.swing.JTabbedPane();
         jScrollPane8 = new javax.swing.JScrollPane();
         tblEmployees2 = new javax.swing.JTable();
 
@@ -102,19 +102,20 @@ public class Assignment4GUI extends javax.swing.JFrame {
         setForeground(java.awt.Color.white);
         setName("frmMain"); // NOI18N
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setOpaque(false);
+        pnlConnection.setBackground(new java.awt.Color(255, 255, 255));
+        pnlConnection.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlConnection.setForeground(new java.awt.Color(255, 255, 255));
+        pnlConnection.setName("pnlConnection"); // NOI18N
+        pnlConnection.setOpaque(false);
 
-        jButton1.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/connect_database.png"))); // NOI18N
-        jButton1.setText("Connect");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setName("btnConnect"); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnConnect.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        btnConnect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/connect_database.png"))); // NOI18N
+        btnConnect.setText("Connect");
+        btnConnect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConnect.setName("btnConnect"); // NOI18N
+        btnConnect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnConnectActionPerformed(evt);
             }
         });
 
@@ -127,62 +128,62 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         jLabel3.setText("Password");
 
-        jPasswordField1.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
-        jPasswordField1.setText("081410");
-        jPasswordField1.setToolTipText("");
-        jPasswordField1.setName("edtPassword"); // NOI18N
+        edtPassword.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        edtPassword.setText("081410");
+        edtPassword.setToolTipText("");
+        edtPassword.setName("edtPassword"); // NOI18N
 
-        jTextField1.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        jTextField1.setText("root");
-        jTextField1.setName("edtUsername"); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        edtUsername.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        edtUsername.setText("root");
+        edtUsername.setName("edtUsername"); // NOI18N
+        edtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                edtUsernameActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlConnectionLayout = new javax.swing.GroupLayout(pnlConnection);
+        pnlConnection.setLayout(pnlConnectionLayout);
+        pnlConnectionLayout.setHorizontalGroup(
+            pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlConnectionLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlConnectionLayout.createSequentialGroup()
+                        .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(jTextField1))
+                            .addComponent(edtUsername))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlConnectionLayout.createSequentialGroup()
+                                .addComponent(edtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        pnlConnectionLayout.setVerticalGroup(
+            pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlConnectionLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConnect))
                 .addGap(14, 14, 14))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.setOpaque(false);
+        pnlMessages.setBackground(new java.awt.Color(255, 255, 255));
+        pnlMessages.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlMessages.setForeground(new java.awt.Color(255, 255, 255));
+        pnlMessages.setOpaque(false);
 
         jTabbedPane1.setToolTipText("Messages");
         jTabbedPane1.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
@@ -199,18 +200,18 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Messages", new javax.swing.ImageIcon(getClass().getResource("/com/messages.png")), jScrollPane1); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlMessagesLayout = new javax.swing.GroupLayout(pnlMessages);
+        pnlMessages.setLayout(pnlMessagesLayout);
+        pnlMessagesLayout.setHorizontalGroup(
+            pnlMessagesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMessagesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pnlMessagesLayout.setVerticalGroup(
+            pnlMessagesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMessagesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
@@ -218,7 +219,16 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("Messages");
 
-        jTabbedPane2.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        pgctrlMain.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        pgctrlMain.setName("pgctrlMain"); // NOI18N
+        pgctrlMain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pgctrlMainMouseClicked(evt);
+            }
+        });
+
+        tbEmployees.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        tbEmployees.setName("tbEmployees"); // NOI18N
 
         jScrollPane6.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
 
@@ -237,7 +247,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         tblEmployees.setName("tblEmployees"); // NOI18N
         jScrollPane6.setViewportView(tblEmployees);
 
-        jTabbedPane4.addTab("Data", jScrollPane6);
+        tbEmployees.addTab("Data", jScrollPane6);
 
         edtFilterValue.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         edtFilterValue.setToolTipText("");
@@ -262,7 +272,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         });
 
         cmbFields.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        cmbFields.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "first_name", "last_name", "email_address", "job_title", "business_phone", "home_phone", "mobile_phone", "fax_number", "address", "state_province", "zip_postal_code", "country_region", "web_page", "notes" }));
+        cmbFields.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "first_name", "last_name", "email_address", "city", "job_title", "business_phone", "home_phone", "mobile_phone", "fax_number", "address", "state_province", "zip_postal_code", "country_region", "web_page", "notes" }));
         cmbFields.setSelectedIndex(-1);
         cmbFields.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,10 +336,13 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addContainerGap(109, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("Actions", jPanel4);
+        tbEmployees.addTab("Actions", jPanel4);
 
-        jTabbedPane2.addTab("Employees", new javax.swing.ImageIcon(getClass().getResource("/com/employees.png")), jTabbedPane4); // NOI18N
-        jTabbedPane4.getAccessibleContext().setAccessibleName("Data");
+        pgctrlMain.addTab("Employees", new javax.swing.ImageIcon(getClass().getResource("/com/employees.png")), tbEmployees); // NOI18N
+        tbEmployees.getAccessibleContext().setAccessibleName("Data");
+
+        tbProducts.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        tbProducts.setName("tbProducts"); // NOI18N
 
         tblProducts.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         tblProducts.setModel(new javax.swing.table.DefaultTableModel(
@@ -345,7 +358,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         tblProducts.setName("tblProducts"); // NOI18N
         jScrollPane7.setViewportView(tblProducts);
 
-        jTabbedPane5.addTab("Data", jScrollPane7);
+        tbProducts.addTab("Data", jScrollPane7);
 
         jLabel6.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
         jLabel6.setText("Add new product data");
@@ -403,25 +416,28 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addContainerGap(185, Short.MAX_VALUE))
         );
 
-        jTabbedPane5.addTab("Actions", jPanel5);
+        tbProducts.addTab("Actions", jPanel5);
 
-        jTabbedPane2.addTab("Products", new javax.swing.ImageIcon(getClass().getResource("/com/product.png")), jTabbedPane5); // NOI18N
+        pgctrlMain.addTab("Products", new javax.swing.ImageIcon(getClass().getResource("/com/product.png")), tbProducts); // NOI18N
+
+        tbNotifications.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        tbNotifications.setName("tbNotifications"); // NOI18N
 
         tblEmployees3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         tblEmployees3.setName("tblEmployees"); // NOI18N
         jScrollPane9.setViewportView(tblEmployees3);
 
-        jTabbedPane7.addTab("Data", jScrollPane9);
+        tbNotifications.addTab("Data", jScrollPane9);
 
         jPanel7.setToolTipText("");
 
@@ -559,27 +575,31 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addContainerGap(81, Short.MAX_VALUE))
         );
 
-        jTabbedPane7.addTab("Actions", jPanel7);
+        tbNotifications.addTab("Actions", jPanel7);
 
-        jTabbedPane2.addTab("Notifications", new javax.swing.ImageIcon(getClass().getResource("/com/notifications.png")), jTabbedPane7); // NOI18N
+        pgctrlMain.addTab("Notifications", new javax.swing.ImageIcon(getClass().getResource("/com/notifications.png")), tbNotifications); // NOI18N
 
+        tbReports.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        tbReports.setName("tbReports"); // NOI18N
+
+        tblEmployees2.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         tblEmployees2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         tblEmployees2.setName("tblEmployees"); // NOI18N
         jScrollPane8.setViewportView(tblEmployees2);
 
-        jTabbedPane6.addTab("Report", jScrollPane8);
+        tbReports.addTab("Report", jScrollPane8);
 
-        jTabbedPane2.addTab("Reports", new javax.swing.ImageIcon(getClass().getResource("/com/report.png")), jTabbedPane6); // NOI18N
+        pgctrlMain.addTab("Reports", new javax.swing.ImageIcon(getClass().getResource("/com/report.png")), tbReports); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -588,29 +608,29 @@ public class Assignment4GUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pgctrlMain, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlMessages, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlConnection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlConnection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pgctrlMain, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlMessages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String username = jTextField1.getText();
-        String password = new String(jPasswordField1.getPassword());
+    private void btnConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectActionPerformed
+        String username = edtUsername.getText();
+        String password = new String(edtPassword.getPassword());
 
         try {
             // Explicitly load the MariaDB driver
@@ -644,11 +664,11 @@ public class Assignment4GUI extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnConnectActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void edtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_edtUsernameActionPerformed
 
     private void edtFilterValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtFilterValueActionPerformed
         // TODO add your handling code here:
@@ -722,6 +742,10 @@ public class Assignment4GUI extends javax.swing.JFrame {
         String SQL_Statement = "SELECT * FROM products;";
         loadTableData("tblProducts", SQL_Statement);
     }//GEN-LAST:event_btnLoadProductsDataActionPerformed
+
+    private void pgctrlMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pgctrlMainMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pgctrlMainMouseClicked
 
     private void loadTableData(String tableComponentName, String query) {
         try {
@@ -850,12 +874,14 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAddNewProduct;
+    private javax.swing.JButton btnConnect;
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnLoadEmployeeData;
     private javax.swing.JButton btnLoadProductsData;
     public javax.swing.JComboBox<String> cmbFields;
     public javax.swing.JTextField edtFilterValue;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPasswordField edtPassword;
+    private javax.swing.JTextField edtUsername;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -875,28 +901,26 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTabbedPane jTabbedPane6;
-    private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTabbedPane pgctrlMain;
+    private javax.swing.JPanel pnlConnection;
+    private javax.swing.JPanel pnlMessages;
+    private javax.swing.JTabbedPane tbEmployees;
+    private javax.swing.JTabbedPane tbNotifications;
+    private javax.swing.JTabbedPane tbProducts;
+    private javax.swing.JTabbedPane tbReports;
     private javax.swing.JTable tblEmployees;
     private javax.swing.JTable tblEmployees2;
     private javax.swing.JTable tblEmployees3;
