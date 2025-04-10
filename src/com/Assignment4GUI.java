@@ -34,6 +34,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
      */
     public Assignment4GUI() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -121,6 +122,11 @@ public class Assignment4GUI extends javax.swing.JFrame {
         btnConnect.setText("Connect");
         btnConnect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConnect.setName("btnConnect"); // NOI18N
+        btnConnect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConnectMouseClicked(evt);
+            }
+        });
         btnConnect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConnectActionPerformed(evt);
@@ -219,6 +225,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jScrollPane1.setToolTipText("Messages");
         jScrollPane1.setName("tbMessages"); // NOI18N
 
+        redMessages.setEditable(false);
         redMessages.setBackground(new java.awt.Color(0, 0, 0));
         redMessages.setColumns(20);
         redMessages.setFont(new java.awt.Font("Courier New", 1, 15)); // NOI18N
@@ -248,6 +255,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("Messages");
 
+        pgctrlMain.setEnabled(false);
         pgctrlMain.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         pgctrlMain.setName("pgctrlMain"); // NOI18N
         pgctrlMain.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -256,6 +264,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
             }
         });
 
+        tbEmployees.setEnabled(false);
         tbEmployees.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         tbEmployees.setName("tbEmployees"); // NOI18N
 
@@ -370,6 +379,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         pgctrlMain.addTab("Employees", new javax.swing.ImageIcon(getClass().getResource("/com/employees.png")), tbEmployees); // NOI18N
         tbEmployees.getAccessibleContext().setAccessibleName("Data");
 
+        tbProducts.setEnabled(false);
         tbProducts.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         tbProducts.setName("tbProducts"); // NOI18N
 
@@ -449,6 +459,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
         pgctrlMain.addTab("Products", new javax.swing.ImageIcon(getClass().getResource("/com/product.png")), tbProducts); // NOI18N
 
+        tbNotifications.setEnabled(false);
         tbNotifications.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         tbNotifications.setName("tbNotifications"); // NOI18N
 
@@ -681,6 +692,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
         pgctrlMain.addTab("Notifications", new javax.swing.ImageIcon(getClass().getResource("/com/notifications.png")), tbNotifications); // NOI18N
 
+        tbReports.setEnabled(false);
         tbReports.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         tbReports.setName("tbReports"); // NOI18N
         tbReports.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -761,7 +773,13 @@ public class Assignment4GUI extends javax.swing.JFrame {
             time = LocalTime.now();
             timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
             redMessages.append("[" + timeString + "] Successfully connected to the database.\n");
-
+            
+            // Enable tabs 
+            pgctrlMain.enable();
+            tbEmployees.enable();
+            tbProducts.enable(); 
+            tbNotifications.enable(); 
+            tbReports.enable(); 
            
 
         } catch (ClassNotFoundException e) {
@@ -775,7 +793,8 @@ public class Assignment4GUI extends javax.swing.JFrame {
             redMessages.append("[" + timeString + "] Connection error: " + ex.getMessage() + ".\n");
             ex.printStackTrace();
         }
-
+        
+     
     }//GEN-LAST:event_btnConnectActionPerformed
 
     private void edtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtUsernameActionPerformed
@@ -1066,6 +1085,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 "Database Error", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
+        
     }//GEN-LAST:event_btnUpdateCustomerActionPerformed
     
     
@@ -1179,6 +1199,13 @@ public class Assignment4GUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnGetExistingDataActionPerformed
+
+    private void btnConnectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConnectMouseClicked
+        // TODO add your handling code here:
+        // Enable all the page controls and tabs 
+        pgctrlMain.enable();
+        
+    }//GEN-LAST:event_btnConnectMouseClicked
 
     private void loadTableData(String tableComponentName, String query) {
         try {

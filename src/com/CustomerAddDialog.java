@@ -26,6 +26,7 @@ public class CustomerAddDialog extends javax.swing.JDialog {
         this.connection = connection;
         initComponents();
         setupListeners();
+        setLocationRelativeTo(null);
     }
     
      private void setupListeners() {
