@@ -28,6 +28,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private Statement statement = null;
     
     
+    
     /**
      * Creates new form Assignment4GUI
      */
@@ -99,6 +100,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         btnLoadEmployeeData2 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
+        btnGetExistingData = new javax.swing.JButton();
         tbReports = new javax.swing.JTabbedPane();
         jScrollPane8 = new javax.swing.JScrollPane();
         tblReport = new javax.swing.JTable();
@@ -450,6 +452,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         tbNotifications.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         tbNotifications.setName("tbNotifications"); // NOI18N
 
+        tblCustomers.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -525,13 +528,25 @@ public class Assignment4GUI extends javax.swing.JFrame {
             }
         });
 
-        cmbUpdateField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbUpdateField.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        cmbUpdateField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "company", "first_name", "last_name", "email_address", "job_title", "business_phone", "home_phone", "mobile_phone", "fax_number", "address", "city", "state_province", "zip_postal_code", "country_region", "web_page", "notes" }));
+        cmbUpdateField.setSelectedIndex(-1);
+        cmbUpdateField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbUpdateFieldMouseClicked(evt);
+            }
+        });
+        cmbUpdateField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbUpdateFieldActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         jLabel13.setText("Choose the field to update: ");
 
         jLabel14.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        jLabel14.setText("New value: ");
+        jLabel14.setText("(New) value: ");
 
         btnLoadCustomerData.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         btnLoadCustomerData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
@@ -559,6 +574,16 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 13)); // NOI18N
         jLabel18.setText("Load inactive Customers");
 
+        btnGetExistingData.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        btnGetExistingData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
+        btnGetExistingData.setText("Get Existing Value");
+        btnGetExistingData.setName("btnConnect"); // NOI18N
+        btnGetExistingData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGetExistingDataActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -578,24 +603,30 @@ public class Assignment4GUI extends javax.swing.JFrame {
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUpdateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbUpdateField, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtUpdateNewValue, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtUpdateCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(55, 55, 55)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edtDeleteCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(256, 256, 256))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnUpdateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                                    .addComponent(edtUpdateNewValue)
+                                    .addComponent(cmbUpdateField, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(edtUpdateCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(67, 67, 67))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtDeleteCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(256, 256, 256))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(btnGetExistingData, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -636,12 +667,14 @@ public class Assignment4GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLoadEmployeeData2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGetExistingData)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(edtUpdateNewValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUpdateCustomer)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         tbNotifications.addTab("Actions", jPanel7);
@@ -943,8 +976,87 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
     private void btnUpdateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCustomerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnUpdateCustomerActionPerformed
+        // UPDATE A SPECIFIC FIELD FOR A CUSTOMER (WITH A SPECIFIC ID)
+        if (connection == null) {
+        JOptionPane.showMessageDialog(this, "Error: Please connect to the database first.", 
+            "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
+        String customerIdStr = edtUpdateCustomerID.getText().trim();
+        if (customerIdStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter a Customer ID to update.", 
+                "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (cmbUpdateField.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a field to update.", 
+                "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String newValue = edtUpdateNewValue.getText().trim();
+        if (newValue.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter a new value for the selected field.", 
+                "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            // First check if the customer exists
+            Statement stmt = connection.createStatement();
+            String checkSql = "SELECT id FROM customers WHERE id = '" + customerIdStr + "'";
+            ResultSet rs = stmt.executeQuery(checkSql);
+
+            if (!rs.next()) {
+                // Customer not found
+                LocalTime time = LocalTime.now();
+                String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                redMessages.append("[" + timeString + "] Customer with ID " + customerIdStr + " was not found in the database.\n");
+                JOptionPane.showMessageDialog(this, "Customer with ID " + customerIdStr + " was not found.", 
+                    "Not Found", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+
+            // Get the selected field to update
+            String fieldToUpdate = (String) cmbUpdateField.getSelectedItem();
+
+            // Build and execute the update query
+            String updateSql = "UPDATE customers SET " + fieldToUpdate + " = '" + newValue + 
+                              "' WHERE id = '" + customerIdStr + "'";
+
+            int rowsAffected = stmt.executeUpdate(updateSql);
+
+            if (rowsAffected > 0) {
+                LocalTime time = LocalTime.now();
+                String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                redMessages.append("[" + timeString + "] Successfully updated " + fieldToUpdate + 
+                                 " to '" + newValue + "' for customer ID " + customerIdStr + ".\n");
+                JOptionPane.showMessageDialog(this, "Successfully updated customer record.", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+
+                // Refresh the customers table
+                loadTableData("tblCustomers", "SELECT * FROM customers");
+            } else {
+                LocalTime time = LocalTime.now();
+                String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                redMessages.append("[" + timeString + "] No changes made to customer ID " + customerIdStr + ".\n");
+                JOptionPane.showMessageDialog(this, "No changes were made to the customer record.", 
+                    "Information", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            LocalTime time = LocalTime.now();
+            String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+            redMessages.append("[" + timeString + "] Error updating customer: " + ex.getMessage() + ".\n");
+            JOptionPane.showMessageDialog(this, "Error updating customer: " + ex.getMessage(), 
+                "Database Error", JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnUpdateCustomerActionPerformed
+    
+    
+    
     private void btnLoadEmployeeDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadEmployeeDataActionPerformed
         // Load data into the Employees table (first tab)        
         String SQL_Statement = "SELECT first_name AS `First Name`, last_name AS `Last Name`, address AS `Address`, city AS `City`, country_region AS `Region`, zip_postal_code AS `Postal Code`, business_phone AS `Phone`, company AS `Office` FROM employees WHERE job_title IS NOT NULL;";
@@ -1010,6 +1122,43 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private void btnLoadEmployeeData2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadEmployeeData2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLoadEmployeeData2ActionPerformed
+
+    private void cmbUpdateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUpdateFieldActionPerformed
+       
+    }//GEN-LAST:event_cmbUpdateFieldActionPerformed
+
+    private void cmbUpdateFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbUpdateFieldMouseClicked
+        
+    }//GEN-LAST:event_cmbUpdateFieldMouseClicked
+
+    private void btnGetExistingDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetExistingDataActionPerformed
+        if (cmbUpdateField.getSelectedIndex() != -1 && !edtUpdateCustomerID.getText().trim().isEmpty()) {
+            try {
+                String customerIdStr = edtUpdateCustomerID.getText().trim();
+                String selectedField = (String) cmbUpdateField.getSelectedItem();
+                
+                Statement stmt = connection.createStatement();
+                String query = "SELECT " + selectedField + " FROM customers WHERE id = '" + customerIdStr + "'";
+                ResultSet rs = stmt.executeQuery(query);
+                
+                if (rs.next()) {
+                    String currentValue = rs.getString(1);
+                    edtUpdateNewValue.setText(currentValue != null ? currentValue : "");
+                } else {
+                    // Customer not found
+                    LocalTime time = LocalTime.now();
+                    String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                    redMessages.append("[" + timeString + "] Customer with ID " + customerIdStr + " was not found in the database.\n");
+                    JOptionPane.showMessageDialog(this, "Customer with ID " + customerIdStr + " was not found.", 
+                        "Not Found", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (SQLException ex) {
+                LocalTime time = LocalTime.now();
+                String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                redMessages.append("[" + timeString + "] Error fetching current value: " + ex.getMessage() + ".\n");
+            }
+        }
+    }//GEN-LAST:event_btnGetExistingDataActionPerformed
 
     private void loadTableData(String tableComponentName, String query) {
         try {
@@ -1148,6 +1297,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnConnect;
     private javax.swing.JButton btnDeleteCustomer;
     private javax.swing.JButton btnFilter;
+    private javax.swing.JButton btnGetExistingData;
     private javax.swing.JButton btnLoadCustomerData;
     private javax.swing.JButton btnLoadEmployeeData;
     private javax.swing.JButton btnLoadEmployeeData2;
