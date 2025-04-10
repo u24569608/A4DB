@@ -69,11 +69,11 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jTabbedPane5 = new javax.swing.JTabbedPane();
         jScrollPane7 = new javax.swing.JScrollPane();
-        tblEmployees1 = new javax.swing.JTable();
+        tblProducts = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         btnAddNewProduct = new javax.swing.JButton();
-        btnLoadEmployeeData1 = new javax.swing.JButton();
+        btnLoadProductsData = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jTabbedPane7 = new javax.swing.JTabbedPane();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -331,8 +331,8 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jTabbedPane2.addTab("Employees", new javax.swing.ImageIcon(getClass().getResource("/com/employees.png")), jTabbedPane4); // NOI18N
         jTabbedPane4.getAccessibleContext().setAccessibleName("Data");
 
-        tblEmployees1.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        tblEmployees1.setModel(new javax.swing.table.DefaultTableModel(
+        tblProducts.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        tblProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -342,8 +342,8 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
             }
         ));
-        tblEmployees1.setName("tblEmployees"); // NOI18N
-        jScrollPane7.setViewportView(tblEmployees1);
+        tblProducts.setName("tblProducts"); // NOI18N
+        jScrollPane7.setViewportView(tblProducts);
 
         jTabbedPane5.addTab("Data", jScrollPane7);
 
@@ -360,13 +360,13 @@ public class Assignment4GUI extends javax.swing.JFrame {
             }
         });
 
-        btnLoadEmployeeData1.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        btnLoadEmployeeData1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
-        btnLoadEmployeeData1.setText("Load Data");
-        btnLoadEmployeeData1.setName("btnLoadEmployeeData"); // NOI18N
-        btnLoadEmployeeData1.addActionListener(new java.awt.event.ActionListener() {
+        btnLoadProductsData.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        btnLoadProductsData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
+        btnLoadProductsData.setText("Load Data");
+        btnLoadProductsData.setName("btnLoadProductsData"); // NOI18N
+        btnLoadProductsData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoadEmployeeData1ActionPerformed(evt);
+                btnLoadProductsDataActionPerformed(evt);
             }
         });
 
@@ -383,7 +383,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnLoadEmployeeData1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLoadProductsData, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddNewProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -395,7 +395,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLoadEmployeeData1)
+                .addComponent(btnLoadProductsData)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -502,12 +502,12 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -683,7 +683,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
             "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             // Create and show the product add dialog
-            ProductAddDialog dialog = new ProductAddDialog(this, connection, tblEmployees1);
+            ProductAddDialog dialog = new ProductAddDialog(this, connection, tblProducts);
             dialog.setVisible(true);
 
             // After dialog closes, refresh the products table
@@ -717,9 +717,11 @@ public class Assignment4GUI extends javax.swing.JFrame {
         loadTableData("tblEmployees", SQL_Statement);
     }//GEN-LAST:event_btnLoadEmployeeDataActionPerformed
 
-    private void btnLoadEmployeeData1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadEmployeeData1ActionPerformed
+    private void btnLoadProductsDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadProductsDataActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLoadEmployeeData1ActionPerformed
+        String SQL_Statement = "SELECT * FROM products;";
+        loadTableData("tblProducts", SQL_Statement);
+    }//GEN-LAST:event_btnLoadProductsDataActionPerformed
 
     private void loadTableData(String tableComponentName, String query) {
         try {
@@ -752,6 +754,9 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 case "tblEmployees":
                     tblEmployees.setModel(model);
                     break;
+                case "tblProducts":
+                    tblProducts.setModel(model); 
+                    break; 
                 // Add cases for other tables if needed
             }
             
@@ -773,7 +778,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
     
     private void loadProductsTable() {
     try {
-        DefaultTableModel model = (DefaultTableModel) tblEmployees1.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblProducts.getModel();
         model.setRowCount(0); // Clear existing data
         
         Statement stmt = connection.createStatement();
@@ -847,7 +852,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
     public javax.swing.JButton btnAddNewProduct;
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnLoadEmployeeData;
-    private javax.swing.JButton btnLoadEmployeeData1;
+    private javax.swing.JButton btnLoadProductsData;
     public javax.swing.JComboBox<String> cmbFields;
     public javax.swing.JTextField edtFilterValue;
     private javax.swing.JButton jButton1;
@@ -893,9 +898,9 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTable tblEmployees;
-    private javax.swing.JTable tblEmployees1;
     private javax.swing.JTable tblEmployees2;
     private javax.swing.JTable tblEmployees3;
+    private javax.swing.JTable tblProducts;
     // End of variables declaration//GEN-END:variables
 }
 
