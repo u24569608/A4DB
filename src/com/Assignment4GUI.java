@@ -95,7 +95,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         tbReports = new javax.swing.JTabbedPane();
         jScrollPane8 = new javax.swing.JScrollPane();
-        tblEmployees2 = new javax.swing.JTable();
+        tblReport = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("A4DB");
@@ -581,9 +581,14 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
         tbReports.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         tbReports.setName("tbReports"); // NOI18N
+        tbReports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbReportsMouseClicked(evt);
+            }
+        });
 
-        tblEmployees2.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        tblEmployees2.setModel(new javax.swing.table.DefaultTableModel(
+        tblReport.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        tblReport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -594,8 +599,8 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
             }
         ));
-        tblEmployees2.setName("tblEmployees"); // NOI18N
-        jScrollPane8.setViewportView(tblEmployees2);
+        tblReport.setName("tblReport"); // NOI18N
+        jScrollPane8.setViewportView(tblReport);
 
         tbReports.addTab("Report", jScrollPane8);
 
@@ -745,7 +750,42 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
     private void pgctrlMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pgctrlMainMouseClicked
         // TODO add your handling code here:
+        if (pgctrlMain.getSelectedIndex() == 3) {
+            // ON REPORT MOUSE CLICK 
+            /* 
+                The owner would like an up-to-date consolidated report to be generated each time the Report tab is
+                opened. This report must provide the number of products in each warehouse for each category. You
+                should return the warehouse name, the category name, and the number of products in the category.
+            */ 
+
+            String SQL_Statement = "SELECT CASE p.category WHEN 'Beverages' THEN 'Warehouse Alpha'" + 
+                                    " WHEN 'Condiments' THEN 'Warehouse Beta'" + 
+                                    " WHEN 'Oil' THEN 'Warehouse Gamma'" + 
+                                    " WHEN 'Jams, Preserves' THEN 'Warehouse Delta'" + 
+                                    " WHEN 'Dried Fruit & Nuts' THEN 'Warehouse Epsilon'" + 
+                                    " WHEN 'Sauces' THEN 'Warehouse Zeta'" + 
+                                    " WHEN 'Canned Fruit & Vegetables' THEN 'Warehouse Eta'" + 
+                                    " WHEN 'Baked Goods & Mixes' THEN 'Warehouse Theta'" + 
+                                    " WHEN 'Canned Meat' THEN 'Warehouse Iota'" + 
+                                    " WHEN 'Soups' THEN 'Warehouse Kappa'" + 
+                                    " WHEN 'Candy' THEN 'Warehouse Lambda'" + 
+                                    " WHEN 'Grains' THEN 'Warehouse Mu'" + 
+                                    " WHEN 'Pasta' THEN 'Warehouse Nu'" + 
+                                    " WHEN 'Dairy products' THEN 'Warehouse Xi'" + 
+                                    " WHEN 'Cereal' THEN 'Warehouse Omicron'" + 
+                                    " WHEN 'Chips, Snacks' THEN 'Warehouse Pi'" + 
+                                    " ELSE 'General Warehouse'" + 
+                                    " END AS warehouse_name," + 
+                                    " p.category AS category_name, COUNT(*) AS number_of_products" + 
+                                    " FROM products p GROUP BY p.category ORDER BY warehouse_name;"; 
+
+            loadTableData("tblReport", SQL_Statement);
+        }
     }//GEN-LAST:event_pgctrlMainMouseClicked
+
+    private void tbReportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbReportsMouseClicked
+                           
+    }//GEN-LAST:event_tbReportsMouseClicked
 
     private void loadTableData(String tableComponentName, String query) {
         try {
@@ -781,6 +821,9 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 case "tblProducts":
                     tblProducts.setModel(model); 
                     break; 
+                case "tblReport":
+                    tblReport.setModel(model); 
+                    break;
                 // Add cases for other tables if needed
             }
             
@@ -922,9 +965,9 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tbProducts;
     private javax.swing.JTabbedPane tbReports;
     private javax.swing.JTable tblEmployees;
-    private javax.swing.JTable tblEmployees2;
     private javax.swing.JTable tblEmployees3;
     private javax.swing.JTable tblProducts;
+    private javax.swing.JTable tblReport;
     // End of variables declaration//GEN-END:variables
 }
 
