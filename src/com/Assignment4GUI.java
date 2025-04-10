@@ -55,6 +55,10 @@ public class Assignment4GUI extends javax.swing.JFrame {
         edtUsername = new javax.swing.JTextField();
         edtDatabaseName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        edtPort = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        edtAddress = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
         pnlMessages = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -166,7 +170,31 @@ public class Assignment4GUI extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
-        jLabel4.setText("Database");
+        jLabel4.setText("Name");
+
+        edtPort.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        edtPort.setText("3306");
+        edtPort.setName("edtDatabaseName"); // NOI18N
+        edtPort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtPortActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        jLabel19.setText("Port");
+
+        edtAddress.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        edtAddress.setText("localhost");
+        edtAddress.setName("edtDatabaseName"); // NOI18N
+        edtAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtAddressActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        jLabel20.setText("Address");
 
         javax.swing.GroupLayout pnlConnectionLayout = new javax.swing.GroupLayout(pnlConnection);
         pnlConnection.setLayout(pnlConnectionLayout);
@@ -177,6 +205,14 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlConnectionLayout.createSequentialGroup()
                         .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edtAddress)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(edtPort, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(edtDatabaseName, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
@@ -185,13 +221,15 @@ public class Assignment4GUI extends javax.swing.JFrame {
                             .addComponent(edtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlConnectionLayout.createSequentialGroup()
                                 .addComponent(edtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19))
+                    .addGroup(pnlConnectionLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlConnectionLayout.setVerticalGroup(
             pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,14 +240,19 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(edtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(edtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnConnect))
-                    .addComponent(edtDatabaseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlConnectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(edtDatabaseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edtPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 14, 14))
         );
 
@@ -712,6 +755,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
             }
         ));
+        tblReport.setToolTipText("");
         tblReport.setName("tblReport"); // NOI18N
         jScrollPane8.setViewportView(tblReport);
 
@@ -752,6 +796,9 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private void btnConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectActionPerformed
         String username = edtUsername.getText();
         String password = new String(edtPassword.getPassword());
+        String address = edtAddress.getText(); 
+        String port = edtPort.getText(); 
+        String databaseName = edtDatabaseName.getText(); 
 
         try {
             // Explicitly load the MariaDB driver
@@ -761,7 +808,8 @@ public class Assignment4GUI extends javax.swing.JFrame {
             String timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
             redMessages.append("[" + timeString + "] MariaDB JDBC Driver loaded successfully.\n");
                 
-            String dbURL = "jdbc:mariadb://localhost:3306/" + edtDatabaseName.getText(); 
+           // String dbURL = "jdbc:mariadb://localhost:3306/" + edtDatabaseName.getText(); 
+           String dbURL = "jdbc:mariadb://" + address + ":" + port + "/" + databaseName; 
             // Connect to the database
             connection = DriverManager.getConnection(
                 //"jdbc:mariadb://localhost:3306/u24569608_u24634434_northwind",
@@ -772,7 +820,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
             time = LocalTime.now();
             timeString = time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
             redMessages.append("[" + timeString + "] Successfully connected to the database.\n");
-            
+            redMessages.append("Connection Information: " + dbURL); 
             // Enable tabs 
             pgctrlMain.enable();
             tbEmployees.enable();
@@ -1206,6 +1254,14 @@ public class Assignment4GUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnConnectMouseClicked
 
+    private void edtPortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtPortActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtPortActionPerformed
+
+    private void edtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtAddressActionPerformed
+
     private void loadTableData(String tableComponentName, String query) {
         try {
             statement = connection.createStatement();
@@ -1351,10 +1407,12 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdateCustomer;
     public javax.swing.JComboBox<String> cmbFields;
     private javax.swing.JComboBox<String> cmbUpdateField;
+    private javax.swing.JTextField edtAddress;
     private javax.swing.JTextField edtDatabaseName;
     private javax.swing.JTextField edtDeleteCustomerID;
     public javax.swing.JTextField edtFilterValue;
     private javax.swing.JPasswordField edtPassword;
+    private javax.swing.JTextField edtPort;
     private javax.swing.JTextField edtUpdateCustomerID;
     private javax.swing.JTextField edtUpdateNewValue;
     private javax.swing.JTextField edtUsername;
@@ -1368,7 +1426,9 @@ public class Assignment4GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
