@@ -36,41 +36,47 @@ public class ProductAddDialog extends javax.swing.JDialog {
     
     private void saveProduct() {
         try {
-            // Validate required fields
-            if (edtProductName.getText().trim().isEmpty() ||
-                edtProductCode.getText().trim().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Product Name and Code are required", 
-                    "Validation Error", JOptionPane.WARNING_MESSAGE);
-                return;
-            }
+        // Validate required fields
+        if (edtProductName.getText().trim().isEmpty() ||
+            edtProductCode.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Product Name and Code are required", 
+                "Validation Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
-            // Prepare the SQL statement
-            String sql = "INSERT INTO products (product_code, product_name, description, " +
-                         "standard_cost, list_price, quantity_per_unit, target_level, " +
-                         "reorder_level, minimum_reorder_quantity, category, supplier_ids) " +
-                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, edtProductCode.getText().trim());
-            pstmt.setString(2, edtProductName.getText().trim());
-            pstmt.setString(3, edtDescription.getText().trim());
-            pstmt.setDouble(4, Double.parseDouble(edtStdCost.getText().trim()));
-            pstmt.setDouble(5, Double.parseDouble(edtListPrice.getText().trim()));
-            pstmt.setString(6, edtQtyPerUnit.getText().trim());
-            pstmt.setInt(7, (Integer)spnTargetLevel.getValue());
-            pstmt.setInt(8, (Integer)spnReorderLevel.getValue());
-            pstmt.setInt(9, (Integer)spnMinReorderQty.getValue());
-            pstmt.setString(10, edtCategory.getText().trim());
-            pstmt.setString(11, edtSupplier_IDs.getText().trim());
-            
-            int rowsAffected = pstmt.executeUpdate();
-            
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(this, "Product added successfully!", 
-                    "Success", JOptionPane.INFORMATION_MESSAGE);
-                refreshProductsTable();
-                this.dispose();
-            }
+        // Get selected category and supplier
+        String selectedCategory = cmbCategory.getSelectedItem() != null ? 
+            cmbCategory.getSelectedItem().toString() : "";
+        String selectedSupplier = cmbSupplier.getSelectedItem() != null ? 
+            cmbSupplier.getSelectedItem().toString() : "";
+
+        // Prepare the SQL statement
+        String sql = "INSERT INTO products (product_code, product_name, description, " +
+                     "standard_cost, list_price, quantity_per_unit, target_level, " +
+                     "reorder_level, minimum_reorder_quantity, category, supplier_ids) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        PreparedStatement pstmt = connection.prepareStatement(sql);
+        pstmt.setString(1, edtProductCode.getText().trim());
+        pstmt.setString(2, edtProductName.getText().trim());
+        pstmt.setString(3, edtDescription.getText().trim());
+        pstmt.setDouble(4, Double.parseDouble(edtStdCost.getText().trim()));
+        pstmt.setDouble(5, Double.parseDouble(edtListPrice.getText().trim()));
+        pstmt.setString(6, edtQtyPerUnit.getText().trim());
+        pstmt.setInt(7, (Integer)spnTargetLevel.getValue());
+        pstmt.setInt(8, (Integer)spnReorderLevel.getValue());
+        pstmt.setInt(9, (Integer)spnMinReorderQty.getValue());
+        pstmt.setString(10, selectedCategory);
+        pstmt.setString(11, selectedSupplier);
+        
+        int rowsAffected = pstmt.executeUpdate();
+        
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(this, "Product added successfully!", 
+                "Success", JOptionPane.INFORMATION_MESSAGE);
+            refreshProductsTable();
+            this.dispose();
+        }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Please enter valid numbers for cost and price", 
                 "Input Error", JOptionPane.ERROR_MESSAGE);
@@ -110,6 +116,38 @@ public class ProductAddDialog extends javax.swing.JDialog {
         }
     }
     
+    private void loadCategories() {
+        try {
+            cmbCategory.removeAllItems();
+            String sql = "SELECT DISTINCT category FROM products ORDER BY category";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                cmbCategory.addItem(rs.getString("category"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error loading categories: " + e.getMessage(), 
+                "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }   
+    
+    private void loadSuppliers() {
+        try {
+            cmbSupplier.removeAllItems();
+            String sql = "SELECT id FROM suppliers ORDER BY id";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                cmbSupplier.addItem(rs.getString("id"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error loading suppliers: " + e.getMessage(), 
+                "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -127,7 +165,6 @@ public class ProductAddDialog extends javax.swing.JDialog {
         spnReorderLevel = new javax.swing.JSpinner();
         edtQtyPerUnit = new javax.swing.JTextField();
         spnMinReorderQty = new javax.swing.JSpinner();
-        edtSupplier_IDs = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -139,8 +176,11 @@ public class ProductAddDialog extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        edtCategory = new javax.swing.JTextField();
+        btnLoadCategorySuppliers = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        cmbCategory = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
+        cmbSupplier = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -154,6 +194,11 @@ public class ProductAddDialog extends javax.swing.JDialog {
         btnAddProductData.setText("Add");
         btnAddProductData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAddProductData.setName("btnAddProductData"); // NOI18N
+        btnAddProductData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductDataActionPerformed(evt);
+            }
+        });
 
         btnCancel.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cancel.png"))); // NOI18N
@@ -206,7 +251,24 @@ public class ProductAddDialog extends javax.swing.JDialog {
 
         jLabel11.setText("Category");
 
-        jLabel12.setText("Supplier_ids (Seperate by semi-colon)");
+        btnLoadCategorySuppliers.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+        btnLoadCategorySuppliers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons8-bolt-16.png"))); // NOI18N
+        btnLoadCategorySuppliers.setText("Load");
+        btnLoadCategorySuppliers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLoadCategorySuppliers.setName("btnAddProductData"); // NOI18N
+        btnLoadCategorySuppliers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadCategorySuppliersActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Load Supplier & Category Information");
+
+        cmbCategory.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
+
+        jLabel12.setText("Supplier_id");
+
+        cmbSupplier.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,17 +281,29 @@ public class ProductAddDialog extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spnMinReorderQty, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10))
-                                .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(edtCategory)))
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(edtQtyPerUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel10)
+                                                .addComponent(spnMinReorderQty, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(49, 49, 49))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLabel11)
+                                            .addGap(170, 170, 170)))
+                                    .addGap(6, 6, 6)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12)
+                                        .addComponent(btnLoadCategorySuppliers, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel13)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(cmbSupplier, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(edtStdCost)
@@ -241,15 +315,14 @@ public class ProductAddDialog extends javax.swing.JDialog {
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spnReorderLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(spnTargetLevel)
-                                        .addGap(12, 12, 12))))
-                            .addComponent(edtDescription)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(spnReorderLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(spnTargetLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
@@ -260,8 +333,7 @@ public class ProductAddDialog extends javax.swing.JDialog {
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(edtProductName)))
-                            .addComponent(edtQtyPerUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtSupplier_IDs, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(edtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -281,21 +353,18 @@ public class ProductAddDialog extends javax.swing.JDialog {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(edtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(1, 1, 1)
-                        .addComponent(edtStdCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(edtListPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spnReorderLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spnTargetLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edtStdCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtListPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnReorderLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnTargetLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -303,16 +372,20 @@ public class ProductAddDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spnMinReorderQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edtCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addComponent(jLabel12)
+                    .addComponent(btnLoadCategorySuppliers))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtSupplier_IDs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -320,21 +393,34 @@ public class ProductAddDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLoadCategorySuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadCategorySuppliersActionPerformed
+         loadCategories();
+         loadSuppliers();
+         JOptionPane.showMessageDialog(this, "Categories and suppliers loaded successfully!", 
+        "Success", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnLoadCategorySuppliersActionPerformed
+
+    private void btnAddProductDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddProductDataActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddProductData;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JTextField edtCategory;
+    private javax.swing.JButton btnLoadCategorySuppliers;
+    private javax.swing.JComboBox<String> cmbCategory;
+    private javax.swing.JComboBox<String> cmbSupplier;
     private javax.swing.JTextField edtDescription;
     private javax.swing.JTextField edtListPrice;
     private javax.swing.JTextField edtProductCode;
     private javax.swing.JTextField edtProductName;
     private javax.swing.JTextField edtQtyPerUnit;
     private javax.swing.JTextField edtStdCost;
-    private javax.swing.JTextField edtSupplier_IDs;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -49,8 +49,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pnlConnection" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="pgctrlMain" min="-2" pref="367" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="pgctrlMain" pref="382" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="pnlMessages" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -432,7 +432,7 @@
                           <Component id="edtFilterValue" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnFilter" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="109" max="32767" attributes="0"/>
+                          <EmptySpace pref="124" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -632,7 +632,7 @@
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnAddNewProduct" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="185" max="32767" attributes="0"/>
+                          <EmptySpace pref="200" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -861,7 +861,7 @@
                           <Component id="edtUpdateNewValue" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnUpdateCustomer" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="49" max="32767" attributes="0"/>
+                          <EmptySpace pref="64" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

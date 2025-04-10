@@ -362,7 +362,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addComponent(edtFilterValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         tbEmployees.addTab("Actions", jPanel4);
@@ -442,7 +442,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddNewProduct)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         tbProducts.addTab("Actions", jPanel5);
@@ -674,7 +674,7 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addComponent(edtUpdateNewValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUpdateCustomer)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         tbNotifications.addTab("Actions", jPanel7);
@@ -726,8 +726,8 @@ public class Assignment4GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(pnlConnection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pgctrlMain, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pgctrlMain, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMessages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1121,6 +1121,13 @@ public class Assignment4GUI extends javax.swing.JFrame {
 
     private void btnLoadEmployeeData2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadEmployeeData2ActionPerformed
         // TODO add your handling code here:
+        // LOAD CUSTOMERS THAT ARE INACTIVE
+        String SQL_Statement = "SELECT c.id, c.first_name, c.last_name, c.email_address, c.business_phone," + 
+        " c.mobile_phone, c.city, c.country_region, MAX(o.order_date) AS last_order_date" + 
+        " FROM customers c LEFT JOIN orders o ON c.id = o.customer_id GROUP BY " + 
+        " c.id, c.first_name, c.last_name, c.email_address, c.business_phone, c.mobile_phone, c.city," +  
+        " c.country_region HAVING MAX(o.order_date) IS NULL ORDER BY last_order_date, c.last_name ASC;";
+        loadTableData("tblCustomers", SQL_Statement);
     }//GEN-LAST:event_btnLoadEmployeeData2ActionPerformed
 
     private void cmbUpdateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUpdateFieldActionPerformed
