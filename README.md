@@ -1,6 +1,8 @@
 # A4DB
 COS 221 Practical Assignment 4 Northwind Database GUI using Java.
 
+![Screenshot of the A4DB application](https://github.com/u24569608/A4DB/blob/f1c25047cb29d8bd322d47dea639aa17ebd92de1/Sources/Screenshots/Screenshot.png=250x250)
+
 ### Specifics
 - This applicaiton provides a GUI interface to connect to a Northwind database using MariaDB. You can perform a number of specific functions with the application based on the practical assignment specification.  
 
