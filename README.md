@@ -13,8 +13,9 @@ When you run the application, please enter the address, port and name of a North
 
 When you download the application from [Releases](https://github.com/u24569608/A4DB/releases), please make sure that `mariadb-java-client-3.5.3.jar` and `mysql-connector-java-8.0.16.jar` are in the `lib` file, with your `.jar` file. This is so that the application can connect to a Northwind MariaDB database using Connector/J from MariaDB. 
 
-### PDF DOCUMENT
-- the pdf documnet cvan be obtained here: [u24569608_u24634434_PA4.pdf](https://github.com/user-attachments/files/19689510/u24569608_u24634434_PA4.pdf)
+### Project PDF
+- The project PDF can be [downloaded here](https://github.com/user-attachments/files/19689510/u24569608_u24634434_PA4.pdf)
+  
 ### Contributors 
 - Connor Bell (u24569608)
 - Adriano Roberto Da Costa Jorge (u24634434)
