@@ -18,6 +18,9 @@ When you download the application from [Releases](https://github.com/u24569608/A
 
 ### Project PDF
 - The project PDF can be [downloaded here](https://github.com/user-attachments/files/19689510/u24569608_u24634434_PA4.pdf)
+
+### Supported Platforms 
+- As long as you have a JDK/JRE installed on your system, this application runs on Windows, macOS and Linux.
   
 ### Contributors 
 - Connor Bell (u24569608)
